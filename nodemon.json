@@ -1,0 +1,8 @@
+{
+    "env" : {
+        "DB_USER": "roy",
+        "DB_PASSWORD" : "MHn0SOzi252WyBgh",
+        "DB_NAME" : "ecommerce",
+        "JWT_SECRET" : "efigjospfpjdmxrf142534645"
+    }
+}
