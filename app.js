@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
 const cors = require('cors');
-// const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8000;
 require("dotenv").config();
 
 const app = express();
@@ -21,9 +21,11 @@ mongoose.connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.wbbon.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
     { useNewUrlParser: true }
 )
-    .then(() => {
-        app.listen(process.env.PORT || 8000)
-    })
+    // .then(() => {
+    //     app.listen(process.env.PORT || 8000)
+    // })
+    .then(() => console.log('DB Connected'))
+
 
 // mongoose.connection.on('error', err => {
 //     console.log(`DB connection error: ${err.message}`)
@@ -42,6 +44,6 @@ app.use('/api', userRoutes);
 app.use('/api', categoryRoutes);
 app.use('/api', productRoutes);
 
-// app.listen(port, () => {
-//     console.log(`Sever is running on port ${port}`);
-// });
+app.listen(port, () => {
+    console.log(`Sever is running on port ${port}`);
+});
